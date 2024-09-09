@@ -13,21 +13,21 @@
 CFLAGS= -Wall -Wextra -Werror -std=c++98
 SRCS= %SRCS%
 SRCS_O= $(SRCS:.cpp=.o)
-NAME= megaphone
+NAME= %NAME%
 
 all: $(NAME)
 
 $(NAME): $(SRCS_O)
-        c++ $(CFLAGS) $(SRCS_O) -o $(NAME)
+	c++ $(CFLAGS) $(SRCS_O) -o $(NAME)
 
 %.o: %.cpp
-        c++ -c $(CFLAGS) $< -o $@
+	c++ -c $(CFLAGS) $< -o $@
 
 clean:
-        rm -f $(SRCS_O)
+	rm -f $(SRCS_O)
 
 fclean: clean
-        rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

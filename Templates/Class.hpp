@@ -14,10 +14,10 @@
 
 class %Class% {
 private:
-		
+		// ADD YOUR VARIABLES
 public:
-        		%Class%();
-        		~%Class%();
-				%Class%(const %Class% &copy);
-        %Class%&	operator=(const %Class% &copy);
+	%Class%();
+	~%Class%();
+	%Class%(const %Class% &copy);
+	%Class%& operator=(const %Class% &copy);
 };

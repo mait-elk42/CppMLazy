@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <%Class%.hpp>
+#include "%Class%.hpp"
 
 %Class%::%Class%() {
-    
+
 }
 %Class%::~%Class%() {
-	
+
 }
 %Class%::%Class%(const %Class% &copy) {
 	if (&copy != this)
-        *this = copy;
+		*this = copy;
 }
 %Class%&	%Class%::operator=(const %Class% &copy) {
 	if (&copy != this)
-#error       ; // INIT YOUT VARIABLES
-    return *this;
+		;
+	return *this;
 }
