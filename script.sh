@@ -15,12 +15,13 @@ mdnew() {
 
 		TEMPLATE_PATH="$HOME/CppMLazy/Templates/Makefile"
 
-		source_files=$(ls *.cpp 2> /dev/null | tr '\n' ' ' | sed 's/ $//')
+		source_files=$(ls *.cpp 2> /dev/null | grep -v "$2.cpp" | tr '\n' ' ' | sed 's/ $//')
 
 		updated_makefile_content=$(sed "s/%SRCS%/$source_files/g" "$HOME/CppMLazy/Templates/Makefile" | sed "s/%USR%/$USER/g" | sed "s/%NAME%/$2/g")
 		echo "$updated_makefile_content" > Makefile
 		
-		echo "Makefile Is Ready :)  But Take A Look Before Use !!!"
+		echo "Makefile Is Ready :) -> Take A Look Before Use !!!"
+		echo "The Default executable file called \"main\", Changing it is highly recommended"
 	elif [ "$1" = "class" ]; then
 		echo "FOUND $1 :)"
 		TEMPLATECPP_PATH="$HOME/CppMLazy/Templates/Class.cpp"

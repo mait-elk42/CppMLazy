@@ -10,6 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
+COMPILER= c++
 CFLAGS= -Wall -Wextra -Werror -std=c++98
 SRCS= %SRCS%
 SRCS_O= $(SRCS:.cpp=.o)
@@ -17,11 +18,11 @@ NAME= %NAME%
 
 all: $(NAME)
 
-$(NAME): $(SRCS_O)
-	c++ $(CFLAGS) $(SRCS_O) -o $(NAME)
+$(NAME): $(SRCS_O) %NAME%.cpp
+	$(COMPILER) $(CFLAGS) %NAME%.cpp $(SRCS_O) -o $(NAME)
 
-%.o: %.cpp
-	c++ -c $(CFLAGS) $< -o $@
+%.o: %.cpp %.hpp
+	$(COMPILER) -c $(CFLAGS) $< -o $@
 
 clean:
 	rm -f $(SRCS_O)
